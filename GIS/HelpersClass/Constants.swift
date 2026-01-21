@@ -9,7 +9,7 @@ let mGoogleMapKey = ""
 //let BaseUrl = "https://df21-103-15-253-94.ngrok-free.app/api/v1/"
 //let BaseUrl = "https://api.gis247.net/api/v1/"
 //let BaseUrl = "http://192.168.0.127:8890/api/v1/"
-let BaseUrl = "https://api2dev.gis247.net/api/v1"
+let BaseUrl = "https://api2.gis247.net/api/v1/"
 let agent = "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "").\(Bundle.main.infoDictionary?["CFBundleVersion"] ?? "")"
 var sGisHeaders: HTTPHeaders = [ "Authorization": UserDefaults.standard.string(forKey: "token") ?? "",
                                  "pos-authorization": UserDefaults.standard.string(forKey: "token_pos") ?? "",
