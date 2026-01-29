@@ -377,30 +377,52 @@ class POSAddToCart: UIViewController , UICollectionViewDelegate , UICollectionVi
                         } else {
                             self.mStoneView.isHidden = true
                         }
-                        
-                        if let locationArray = mData.value(forKey: "location_arr") as? NSArray {
+                        if let locationArray = mData.value(forKey: "location_arr") as? [[String: Any]] {
 
-                            if let mTotal = mData.value(forKey: "totallocation_qty") as? Int {
-                                self.mTotalCount.text = "(\(mTotal))"
-                            }else{
-                                self.mTotalCount.text = "(0)"
-                            }
-                            let locArr = NSMutableArray()
-                            for i in 0..<locationArray.count {
-                                if let mData = locationArray[i] as? NSDictionary , mData.value(forKey: "qty") as? Int != 0 {
-                                    
-                                    locArr.add(mData)
+                            var totalQty = 0
+                            var locArr: [[String: Any]] = []
+
+                            for item in locationArray {
+                                if let qty = item["qty"] as? Int {
+                                    totalQty += qty
+                                    locArr.append(item)
                                 }
                             }
-                            
+
                             self.mLocationData = locArr as NSArray
-                            let height = self.mLocationData.count * 40
-                            self.mLocationTableHeight.constant = CGFloat(integerLiteral: height)
+                            self.mTotalCount.text = "(\(totalQty))"
+
+                            let height = locArr.count * 40
+                            self.mLocationTableHeight.constant = CGFloat(height)
                             self.mLocationTable.reloadData()
-                            
-                        }else{
+
+                        } else {
                             self.mTotalCount.text = "(0)"
                         }
+
+                        // if let locationArray = mData.value(forKey: "location_arr") as? NSArray {
+
+                        //     if let mTotal = mData.value(forKey: "totallocation_qty") as? Int {
+                        //         self.mTotalCount.text = "(\(mTotal))"
+                        //     }else{
+                        //         self.mTotalCount.text = "(0)"
+                        //     }
+                        //     let locArr = NSMutableArray()
+                        //     for i in 0..<locationArray.count {
+                        //         if let mData = locationArray[i] as? NSDictionary , mData.value(forKey: "qty") as? Int != 0 {
+                                    
+                        //             locArr.add(mData)
+                        //          }
+                        //     }
+                            
+                        //     self.mLocationData = locArr as NSArray
+                        //     let height = self.mLocationData.count * 40
+                        //     self.mLocationTableHeight.constant = CGFloat(integerLiteral: height)
+                        //     self.mLocationTable.reloadData()
+                            
+                        // }else{
+                        //     self.mTotalCount.text = "(0)"
+                        // }
                         
                         if let mArr = mData.value(forKey:"choice_data") as? NSArray,
                            mArr.count > 0 {
@@ -613,7 +635,7 @@ class POSAddToCart: UIViewController , UICollectionViewDelegate , UICollectionVi
             
             let mParams = ["product_id":[self.mProductId], "customer_id":self.mCustomerId, "sales_person_id":"", "type":self.mType, "order_type":"custom_order"] as [String : Any]
             
-            
+            0
             mGetData(url: mAddCustomProduct,headers: sGisHeaders,  params: mParams) { response , status in
                 CommonClass.stopLoader()
                 if status {
@@ -779,7 +801,7 @@ class POSAddToCart: UIViewController , UICollectionViewDelegate , UICollectionVi
         if let mData = self.mLocationData[indexPath.row] as? NSDictionary{
             cells.mLocationQty.text = "\(mData.value(forKey: "qty") ?? "--")"
             
-            cells.mLocationName.text = "\(mData.value(forKey: "location_name") ?? "--")"
+            cells.mLocationName.text = "\(mData.value(forKey: "location") ?? "--")"
             
         }else{
             cells.isHidden = true

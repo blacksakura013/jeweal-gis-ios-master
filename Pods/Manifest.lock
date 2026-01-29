@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.10.2)
+  - Alamofire (5.11.0)
   - CocoaLumberjack (3.9.0):
     - CocoaLumberjack/Core (= 3.9.0)
   - CocoaLumberjack/Core (3.9.0)
@@ -169,7 +169,7 @@ CHECKOUT OPTIONS:
     :tag: '1.0'
 
 SPEC CHECKSUMS:
-  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Alamofire: bd5e7b23a1a750975288482c1831d71e74415f86
   CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   IQKeyboardCore: 8652977ec919cf5351aa2977fedd1a6546476fbc
