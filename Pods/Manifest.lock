@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.11.0)
+  - Alamofire (5.11.1)
   - CocoaLumberjack (3.9.0):
     - CocoaLumberjack/Core (= 3.9.0)
   - CocoaLumberjack/Core (3.9.0)
@@ -115,7 +115,7 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.2.0)
   - NVActivityIndicatorView/Base (5.2.0)
   - RSSelectionMenu (7.1.3)
-  - SDWebImage/Core (5.21.5)
+  - SDWebImage/Core (5.21.6)
   - SDWebImageSVGCoder (1.8.0):
     - SDWebImage/Core (~> 5.6)
   - SVGKit (3.0.0):
@@ -169,7 +169,7 @@ CHECKOUT OPTIONS:
     :tag: '1.0'
 
 SPEC CHECKSUMS:
-  Alamofire: bd5e7b23a1a750975288482c1831d71e74415f86
+  Alamofire: eec6cd8f73b242b59e34153a606a909eb9864b14
   CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   IQKeyboardCore: 8652977ec919cf5351aa2977fedd1a6546476fbc
@@ -185,7 +185,7 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
   RSSelectionMenu: 873d62ebbaef138519f6cf3f073412c2b5d94c2c
-  SDWebImage: e9c98383c7572d713c1a0d7dd2783b10599b9838
+  SDWebImage: 1bb6a1b84b6fe87b972a102bdc77dd589df33477
   SDWebImageSVGCoder: 8e10c8f6cc879c7dfb317b284e13dd589379f01c
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   SwiftyGif: 706c60cf65fa2bc5ee0313beece843c8eb8194d4
