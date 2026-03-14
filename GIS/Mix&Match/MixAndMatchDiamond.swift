@@ -800,13 +800,13 @@ class MixAndMatchDiamond: UIViewController , UITableViewDelegate , UITableViewDa
                         
                         if let status = mData.value(forKey: "Status") as? String {
                             
-                            if status == "1" {
+                            if "\(status)" == "1" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 0.4588235294, green: 0.8, blue: 1, alpha: 1)
-                            }else if status == "2" {
+                            }else if "\(status)" == "2" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 1, green: 0.7386777401, blue: 0.3924969435, alpha: 1)
-                            }else if status == "3" {
+                            }else if "\(status)" == "3" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-                            }else if status == "4" {
+                            }else if "\(status)" == "4" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.8392156863, blue: 0.8156862745, alpha: 1)
                             }
                         }
@@ -889,13 +889,13 @@ class MixAndMatchDiamond: UIViewController , UITableViewDelegate , UITableViewDa
                         cell1.mCertificateNumber.text = "\(mData.value(forKey: "Certification") ?? "")"
                         
                         if let status = mData.value(forKey: "Status") as? String {
-                            if status == "1" {
+                            if "\(status)" == "1" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 0.4588235294, green: 0.8, blue: 1, alpha: 1)
-                            }else if status == "2" {
+                            }else if "\(status)" == "2" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 1, green: 0.7386777401, blue: 0.3924969435, alpha: 1)
-                            }else if status == "3" {
+                            }else if "\(status)" == "3" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-                            }else if status == "4" {
+                            }else if "\(status)" == "4" {
                                 cell1.mStatus.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.8392156863, blue: 0.8156862745, alpha: 1)
                             }
                         }

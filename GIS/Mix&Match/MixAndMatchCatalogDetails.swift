@@ -551,8 +551,38 @@ class MixAndMatchCatalogDetails: UIViewController , UICollectionViewDelegate , U
                             self.mReferenceNo.text = "\(mProductData.value(forKey: "SKU") ?? "--")"
                             self.mPMetalName.text = "\(mProductData.value(forKey: "metal_name") ?? "--" )"
                             self.mPMetalWeight.text = "\(mProductData.value(forKey: "GrossWt") ?? "--" )"
-                            self.mPStoneName.text = "\(mProductData.value(forKey: "stone_name") ?? "--" )"
-                            self.mPStoneWeight.text = "\(mProductData.value(forKey: "diamondWt") ?? "--" )"
+                            
+                            if let stones = mProductData.value(forKey: "stones") as? [[String: Any]] {
+    
+                                var stoneDict: [String:(pcs:Int, weight:Double, unit:String)] = [:]
+                                
+                                for stone in stones {
+                                    
+                                    let name = stone["stone_name"] as? String ?? ""
+                                    let pcs = stone["Pcs"] as? Int ?? 0
+                                    let weight = Double("\(stone["Cts"] ?? "0")") ?? 0
+                                    let unit = stone["Unit"] as? String ?? ""
+                                    
+                                    if var exist = stoneDict[name] {
+                                        exist.pcs += pcs
+                                        exist.weight += weight
+                                        stoneDict[name] = exist
+                                    } else {
+                                        stoneDict[name] = (pcs, weight, unit)
+                                    }
+                                }
+                                
+                                var nameLines: [String] = []
+                                var weightLines: [String] = []
+                                
+                                for (name,data) in stoneDict {
+                                    nameLines.append(name)
+                                    weightLines.append("\(data.pcs) \(data.weight) \(data.unit)")
+                                }
+                                
+                                self.mPStoneName.text = nameLines.joined(separator: "\n")
+                                self.mPStoneWeight.text = weightLines.joined(separator: "\n")
+                            }
                             self.mPrice.text = self.mStoreCurrency + " \(mProductData.value(forKey: "price") ?? "--" )"
                             self.mPointerPrice = "\(mProductData.value(forKey: "price") ?? "--" )"
                             
